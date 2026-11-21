@@ -1,0 +1,11 @@
+
+@if(tasks.length === 0) {
+    <p class="empty">Aucune tâche disponible.</p>
+}@else{
+    <ul>
+        @for(task of tasks; track task.id) {
+            <li>{{ task.dueDate | date:'dd/MM/yyyy' }}</li>
+            <li [style.color]="task.title | titleColorPipe">{{ task.title | uppercase }}</li>
+        }
+    </ul>
+}
